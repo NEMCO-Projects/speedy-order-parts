@@ -1,0 +1,36 @@
+@page
+@model SpeedyOrderPages.Pages.OrdersModel
+@{
+    ViewData["Title"] = "All Orders";
+}
+
+<div class="container mt-4">
+    <h1>All Orders</h1>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.OrderName</td>
+                    <td>@order.OrderItem</td>
+                    <td>@order.Quantity</td>
+                    <td>
+                        <a asp-page="/EditOrder" asp-route-id="@order.Id" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-page="/DeleteOrder" asp-route-id="@order.Id" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-page="/Order" class="btn btn-primary">Place New Order</a>
+</div>

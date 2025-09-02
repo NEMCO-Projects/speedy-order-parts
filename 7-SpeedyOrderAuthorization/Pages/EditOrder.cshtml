@@ -1,0 +1,25 @@
+@page "{id:int}"
+@model SpeedyOrderPages.Pages.EditOrderModel
+@{
+    ViewData["Title"] = "Edit Order";
+}
+
+<div class="container mt-4">
+    <h1>Edit Order</h1>
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Order.OrderName" class="form-label">Name</label>
+            <input asp-for="Order.OrderName" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Order.OrderItem" class="form-label">Item</label>
+            <input asp-for="Order.OrderItem" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Order.Quantity" class="form-label">Quantity</label>
+            <input asp-for="Order.Quantity" type="number" class="form-control" min="1" />
+        </div>
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a asp-page="/Orders" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
